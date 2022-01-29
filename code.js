@@ -33,6 +33,7 @@ function openSection(evt, sec) {
 function colorText(str){
 	var i;
 	var returnStr = "";
+	str = str.substr(4);
 	
 	for (i = 0; i < str.length; i++) {
 		let color = str[i];
