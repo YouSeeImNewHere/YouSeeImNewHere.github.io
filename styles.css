@@ -3,10 +3,16 @@
 	height: 150px;
 }
 
+h3{
+	margin: 0px;
+}
+
+/* all of the tab buttons */
 .tab {
   	border: 5px solid;
   	float: left;
-	width: 24vw;
+	max-width: 24vw;
+	min-width: 175px;
 	height: 90vh;
   	overflow: auto;
 }
@@ -35,26 +41,34 @@
 /* Style the tab content */
 .tabcontent {
   	display: none;
-  	width: 60vw;
+	min-width: 40vw;
+  	max-width: 70vw;
   	height: 90vh;
   	overflow: auto;
   	border: 5px solid #ccc;
 }
 
+/* the buttons and text at the top */
 .topMargin{
-	margin: 0 0px 0px;
+  	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
 }
 
-.nav {
+/* explains what the colors mean */
+.key {
 	display: inline-block;
 	position: fixed;
 	padding-left: 5px;
 }
 
-.nav li {
+/* each list entry*/
+.key li {
 	display:inline;
 }
 
+/* the ul of entries */
 .index {
 	margin: inherit;
 	display: inline-block;
@@ -65,30 +79,32 @@
 	background-color: white;
 }
 
+/* each button*/
 .switch {
     background-color: chartreuse;
     width: 100px;
     height: 50px;
-  	margin-top: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 5px;
 }
 
+/* each case */
 .seperate {
   	border: 5px solid #000;
-  	padding: 6px 12px;
-	height: 250px;
+  	padding: 5px;
+	width: 22vw;
+	min-width: 175px;
+	height: 25vh;
+	overflow: auto;
 }
 
+/* types of cases */
 .types {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
+  	font-family: Arial, Helvetica, sans-serif;
+  	text-align: center;
+	padding: 0px;
 }
 
 .types li {
   display: inline-block;
-  width: 400px;
   margin: 0 5px 5px;
   overflow: auto;
 }
