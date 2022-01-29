@@ -303,7 +303,7 @@ function AllCases(){
 	
 	for(i = 1; i < OLL.length + 1; i++){
 		
-		let str = "<div class=\"seperate\"> <img src=\"OLL/" + i + ".png\" alt=\"OLL case " + i + "\" title=\"OLL case " + i + "\" class=\"img\"/> <h3 id=\"OLL" + i + "\">" + colorText(OLL[i -1]) + "</h3> </div>";
+		let str = "<div class=\"seperate\"> <img src=\"OLL/" + i + ".png\" alt=\"OLL case " + i + "\" title=\"OLL case " + i + "\" class=\"img\"/> <h3 id=\"OLL" + i + "\">" + String(i).padStart(2, '0') + ": " + colorText(OLL[i -1]) + "</h3> </div>";
 		let li = document.createElement("li");
         li.innerHTML = str;
         list.appendChild(li);
@@ -311,7 +311,7 @@ function AllCases(){
 	
 	for(i = 1; i < 22; i++){
 		
-		let str = "<div class=\"seperate\"> <img src=\"PLL/" + i + ".png\" alt=\"PLL case " + i + "\" title=\"PLL case " + i + "\" class=\"img\"/> <h3 id=\"PLL" + i + "\">" + colorText(PLL[i -1]) + "</h3> </div>";
+		let str = "<div class=\"seperate\"> <img src=\"PLL/" + i + ".png\" alt=\"PLL case " + i + "\" title=\"PLL case " + i + "\" class=\"img\"/> <h3 id=\"PLL" + i + "\">" + String(i).padStart(2, '0') + ": " + colorText(PLL[i -1]) + "</h3> </div>";
 		let li = document.createElement("li");
         li.innerHTML = str;
         list.appendChild(li);
