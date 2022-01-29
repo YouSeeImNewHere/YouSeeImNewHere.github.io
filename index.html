@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 760px">
+    <head>
+		<meta name="viewport" content= "width=device-width, initial-scale=1.0">
+        <script src="code.js"> </script>  
+        <link rel="stylesheet" href="styles.css">
+	</head>
+    
+	<body id="screen">
+		<script>
+			var key_pressed = document.getElementById('screen');
+			
+			key_pressed.addEventListener("keyup", onKeyUp);
+        	function onKeyUp(event) {
+                switch(event.key){
+					case "o":
+						openSection(event, 'OLL');
+						break;
+					case "p":
+						openSection(event, 'PLL');
+						break;
+					case "[":
+						openSection(event, 'IN ORDER');
+						break;
+				}
+        }
+    	</script>
+		
+		<div class="topMargin">
+			<button class="switch" onclick="openSection(event, 'OLL')"> 
+					GO TO OLL
+			</button>
+			<button class="switch" onclick="openSection(event, 'PLL')" style="left: 110px"> 
+					GO TO PLL
+			</button>
+			<button class="switch" onclick="openSection(event, 'IN ORDER')" style="left: 110px"> 
+					ALL CASES
+			</button>
+
+			<div class="nav">
+				<ul class="index">
+					<li style="color: deepskyblue">
+						Left index finger
+					</li>
+					|
+					<li style="color: red">
+						Right thumb
+					</li>
+					|
+					<li style="color: orange">
+						Right ring finger
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="sections" id="OLL">
+			<div class="tab">
+				<button class="tablinks" onclick="openTab(event, '7 type')">
+					<img src="OLL/7.png" class="img" alt="7 types"s/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '29 type')">
+					<img src="OLL/29.png" class="img" alt="29 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '1 type')">
+					<img src="OLL/1.png" class="img" alt="1 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '5 type')">
+					<img src="OLL/5.png" class="img" alt="5 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '31 type')">
+					<img src="OLL/31.png" class="img" alt="31 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '21 type')">
+					<img src="OLL/21.png" class="img" alt="21 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '23 type')">
+					<img src="OLL/23.png" class="img" alt="23 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '26 type')">
+					<img src="OLL/26.png" class="img" alt="26 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '47 type')">
+					<img src="OLL/47.png" class="img" alt="47 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '33 type')">
+					<img src="OLL/33.png" class="img" alt="33 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '34 type')">
+					<img src="OLL/34.png" class="img" alt="34 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '36 type')">
+					<img src="OLL/36.png" class="img" alt="36 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '13 type')">
+					<img src="OLL/13.png" class="img" alt="13 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '51 type')">
+					<img src="OLL/51.png" class="img" alt="51 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '39 type')">
+					<img src="OLL/39.png" class="img" alt="39 types"/>
+				</button>
+				<button class="tablinks" onclick="openTab(event, '28 type')">
+					<img src="OLL/28.png" class="img" alt="Other types"/>
+				</button>
+			</div>     
+			<div class="content">
+				<div id="7 type" class="tabcontent">
+					<ul class="types" id="7 cases">
+					</ul>
+				</div>
+				<div id="29 type" class="tabcontent">
+					<ul class="types" id="29 cases">
+					</ul>
+				</div>
+				<div id="1 type" class="tabcontent">
+					<ul class="types" id="1 cases">
+					</ul>
+				</div>
+				<div id="5 type" class="tabcontent">
+					<ul class="types" id="5 cases">
+					</ul>
+				</div>
+				<div id="31 type" class="tabcontent">
+					<ul class="types" id="31 cases">
+					</ul>
+				</div>
+				<div id="21 type" class="tabcontent">
+					<ul class="types" id="21 cases">
+					</ul>
+				</div>
+				<div id="23 type" class="tabcontent">
+					<ul class="types" id="23 cases">
+					</ul>
+				</div>
+				<div id="26 type" class="tabcontent">
+					<ul class="types" id="26 cases">
+					</ul>
+				</div>
+				<div id="47 type" class="tabcontent">
+					<ul class="types" id="47 cases">
+					</ul>
+				</div>
+				<div id="33 type" class="tabcontent">
+					<ul class="types" id="33 cases">
+					</ul>
+				</div>
+				<div id="34 type" class="tabcontent">
+					<ul class="types" id="34 cases">
+					</ul>
+				</div>
+				<div id="36 type" class="tabcontent">
+					<ul class="types" id="36 cases">
+					</ul>
+				</div>
+				<div id="13 type" class="tabcontent">
+					<ul class="types" id="13 cases">
+					</ul>
+				</div>
+				<div id="51 type" class="tabcontent">
+					<ul class="types" id="51 cases">
+					</ul>
+				</div>
+				<div id="39 type" class="tabcontent">
+					<ul class="types" id="39 cases">
+					</ul>
+				</div>
+				<div id="28 type" class="tabcontent">
+					<ul class="types" id="28 cases">
+					</ul>
+				</div>
+			</div>
+			<script> OLLcases() </script>
+		</div>
+
+		<div class="sections" id="PLL" style="display: none">
+			<div class="content">
+				<ul class="types" id="PLL cases">	
+					<script> PLLcases() </script>
+				</ul>
+			</div>
+		</div>
+
+		<div class="sections" id="IN ORDER" style="display: none">
+			<div class="content">
+				<ul class="types" id="All cases">
+					<script> AllCases() </script>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
