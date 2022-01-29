@@ -34,14 +34,13 @@ function colorText(str){
 	var i;
 	var returnStr = "";
 	str = str.substr(4);
-	
 	for (i = 0; i < str.length; i++) {
 		let color = str[i];
 		if(color == "o"){
 			let tempStr = "<font color='orange'>";
 			
 			for(i += 1; i < str.length; i++){
-				if(str[i] == " " || str[i] == ")"){
+				if(str[i] == " " || str[i] == ")" || str[i] == "&"){
 					i--;
 					break;
 				}
@@ -66,11 +65,15 @@ function colorText(str){
 				returnStr += "r2";
 				i++;
 			}
+			else if(str[i + 1] == "&") {
+				returnStr += "r&";
+				i++;
+			}
 			else{
 				let tempStr = "<font color='red'>";
 
 				for(i += 1; i < str.length; i++){
-					if(str[i] == " " || str[i] == ")"){
+					if(str[i] == " " || str[i] == ")" || str[i] == "&"){
 						i--;
 						break;
 					}
@@ -96,11 +99,19 @@ function colorText(str){
 				returnStr += "b)";
 				i++;
 			}
+			else if(str[i + 1] == "s") {
+				returnStr += "bs";
+				i++;
+			}
+			else if(str[i + 1] == "&") {
+				returnStr += "b&";
+				i++;
+			}
 			else {
 				let tempStr = "<font color='deepskyblue'>";
 				
 				for(i += 1; i < str.length; i++){
-					if(str[i] == " " || str[i] == ")"){
+					if(str[i] == " " || str[i] == ")" || str[i] == "&"){
 						i--;
 						break;
 					}
@@ -183,87 +194,87 @@ function getList(num){
 }
 
 OLL = [
-			"01: (R rU' bU') (R'2 F R rF') U2 (R' F R rF')",
-			"02: F (R U R' bU') rF' f (R U R' bU') rf'",
-			"03: f (R U R' bU') rf' bU' F (R U R' bU') rF'",
-			"04: f (R U R' bU') rf' U F (R U R' bU') rF'",
-			"05: (r' U2) (R U R' U) r",
-			"06: (r rU' bU') (R' bU' R bU' r')",
-			"07: (r U R' U) (R rU' bU' r')",
-			"08: (r' bU' R bU') (R' U2 r)",
-			"09: (R U R' bU') (R' F) (R2 U R' bU') rF'",
-			"10: (R U R' oU) (R' F R rF') (R rU' bU' R')",
-			"11: (r' R2 U R' U) (R rU' bU' R' U) oM'",
-			"12: oM' (R' bU' R bU') (R' U2 R bU') M",
-			"13: f (R U) (R2 bU') (R' U R bU') of'",
-			"14: (R' F) (R U R' rF' R) (F bU' rF')",
-			"15: (r' bU' r) (R' bU' R U) (r' U r)",
-			"16: (r U r') (R U R' bU') (r bU' r')",
-			"17: (l bU' l') f (R2 B R' U R' bU' rf')",
-			"18: (r U R' U) (R rU' bU' r') (r' bU' R bU') (R' U2 r)",
-			"19: (r' R U) (R U R' bU' r) (R'2 F R rF')",
-			"20: (r U R' bU') oM'2 U (R bU' R' bU') oM'",
-			"21: (R rU' bU') (R' bU' R U R' bU') (R bU' R')",
-			"22: (R rU' bU') (R'2 bU') (R2 bU') (R'2 bU') (rU' R)",
-			"23: (R2 oD') (R rU' bU' R' oD) (R rU' bU' R)",
-			"24: (r U R' bU') (r' F R rF')",
-			"25: rF' (r U R' bU') (r' F R)",
-			"26: (R rU' bU') (R' bU' R bU' R')",
-			"27: (R U R' oU) (R rU' bU' R')",
-			"28: (r U R' bU') (r' R U) (R bU' R')",
-			"29: (R U R' bU') (R bU' R' rF' bU' F) (R U R')",
-			"30: f (R U) (R2 bU' R' U) (R2 bU' R') rf'",
-			"31: (r' rF' rU rF) (r bU' r' bU' r)",
-			"32: (R U) (rB' bU') (R' U R B R')",
-			"33: (R U R' bU') (R' F R rF')",
-			"34: (R U R2 bU') (R' F) (R U R bU' oF')",
-			"35: (R rU' bU') (R'2 F R rF') (R rU' bU' R')",
-			"36: (R' bU' R  bU') (R' U R U) (l bU' R' U)",
-			"37: F (R bU' R' bU') (R U R' rF')",
-			"38: (R U R' U) (R bU' R' bU') (R' F R rF')",
-			"39: (R U R' rF' bU' F) U (R U2 R')",
-			"40: (R' F) (R U R' bU') rF' (U R)",
-			"41: (R U R' oU) (R rU' bU' R') F (R U R' bU') rF'",
-			"42: (R' bU' R bU') (R' U2 R) F (R U R' bU') rF'",
-			"43: (rB' bU') (R' U R B)",
-			"44: f (R U R' bU') rf'",
-			"45: F (R U R' bU') rF'",
-			"46: (R' bU') (R' F R rF') (U R)",
-			"47: rb' (bU' R' U R)2 b",
-			"48: F (R U R' bU')2 rF'",
-			"49: (R rB') (R'2 F R2 B) (R'2 rF' R)",
-			"50: (r' U) (r2 bU' r'2 bU') (r2 U r')",
-			"51: f ( R U R' bU')2 rf'",
-			"52: (R' rF' bU' F bU') (R U R' oU R)",
-			"53: (r' U2) (R U R' bU') (R U R' U r)",
-			"54: (r rU' bU') (R' bU' R U) (R' bU' R bU' r')",
-			"55: (r rU' bU' R' bU') (r' R2 U R' bU') (r bU' r')",
-			"56: (r U r') (U R bU' R')2 (r bU' r)",
-			"57: (R U R' bU') oM' (U R bU' r')"
+			"01: (R rU'&nbsp;bU') (R'2&nbsp;F&nbsp;R&nbsp;rF') U2 (R'&nbsp;F&nbsp;R&nbsp;rF')",
+			"02: F (R&nbsp;U&nbsp;R'&nbsp;bU') rF' f (R&nbsp;U&nbsp;R'&nbsp;bU') rf'",
+			"03: f (R&nbsp;U&nbsp;R'&nbsp;bU') rf' bU' F (R&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"04: f (R&nbsp;U&nbsp;R'&nbsp;bU') rf' U F (R&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"05: (r'&nbsp;U2) (R&nbsp;U&nbsp;R'&nbsp;U) r",
+			"06: (r&nbsp;rU'&nbsp;bU') (R'&nbsp;bU'&nbsp;R&nbsp;bU'&nbsp;r')",
+			"07: (r&nbsp;U&nbsp;R'&nbsp;U) (R&nbsp;rU'&nbsp;bU'&nbsp;r')",
+			"08: (r'&nbsp;bU'&nbsp;R&nbsp;bU') (R'&nbsp;U2&nbsp;r)",
+			"09: (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F) (R2&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"10: (R&nbsp;U&nbsp;R'&nbsp;oU) (R'&nbsp;F&nbsp;R&nbsp;rF') (R&nbsp;rU'&nbsp;bU' R')",
+			"11: (r'&nbsp;R2&nbsp;U&nbsp;R'&nbsp;U) (R&nbsp;rU'&nbsp;bU'&nbsp;R'&nbsp;U) oM'",
+			"12: oM' (R'&nbsp;bU'&nbsp;R&nbsp;bU') (R'&nbsp;U2&nbsp;R&nbsp;bU') M",
+			"13: f (R&nbsp;U) (R2&nbsp;bU') (R'&nbsp;U&nbsp;R&nbsp;bU') of'",
+			"14: (R' F)&nbsp;(R&nbsp;U&nbsp;R'&nbsp;rF'&nbsp;R) (F&nbsp;bU'&nbsp;rF')",
+			"15: (r'&nbsp;bU'&nbsp;r) (R'&nbsp;bU'&nbsp;R&nbsp;U) (r'&nbsp;U&nbsp;r)",
+			"16: (r&nbsp;U&nbsp;r') (R&nbsp;U&nbsp;R'&nbsp;bU') (r&nbsp;bU'&nbsp;r')",
+			"17: (l&nbsp;bU'&nbsp;l') f (R2&nbsp;B&nbsp;R'&nbsp;U&nbsp;R'&nbsp;bU'&nbsp;rf')",
+			"18: (r&nbsp;U&nbsp;R'&nbsp;U) (R&nbsp;rU'&nbsp;bU'&nbsp;r') (r'&nbsp;bU'&nbsp;R&nbsp;bU') (R'&nbsp;U2&nbsp;r)",
+			"19: (r'&nbsp;R&nbsp;U) (R&nbsp;U&nbsp;R'&nbsp;bU'&nbsp;r) (R'2&nbsp;F&nbsp;R&nbsp;rF')",
+			"20: (r&nbsp;U&nbsp;R'&nbsp;bU') oM'2 U (R&nbsp;bU'&nbsp;R'&nbsp;bU') oM'",
+			"21: (R&nbsp;rU'&nbsp;bU') (R'&nbsp;bU'&nbsp;R&nbsp;U&nbsp;R'&nbsp;bU') (R&nbsp;bU'&nbsp;R')",
+			"22: (R&nbsp;rU'&nbsp;bU') (R'2&nbsp;bU') (R2&nbsp;bU') (R'2&nbsp;bU') (rU'&nbsp;R)",
+			"23: (R2&nbsp;oD') (R&nbsp;rU'&nbsp;bU'&nbsp;R'&nbsp;oD) (R&nbsp;rU'&nbsp;bU'&nbsp;R)",
+			"24: (r&nbsp;U&nbsp;R'&nbsp;bU') (r'&nbsp;F&nbsp;R&nbsp;rF')",
+			"25: rF' (r&nbsp;U&nbsp;R'&nbsp;bU') (r'&nbsp;F&nbsp;R)",
+			"26: (R&nbsp;rU'&nbsp;bU') (R'&nbsp;bU'&nbsp;R&nbsp;bU'&nbsp;R')",
+			"27: (R&nbsp;U&nbsp;R'&nbsp;oU) (R&nbsp;rU'&nbsp;bU'&nbsp;R')",
+			"28: (r&nbsp;U&nbsp;R'&nbsp;bU') (r'&nbsp;R&nbsp;U) (R&nbsp;bU'&nbsp;R')",
+			"29: (R&nbsp;U&nbsp;R'&nbsp;bU') (R&nbsp;bU'&nbsp;R'&nbsp;rF'&nbsp;bU'&nbsp;F) (R&nbsp;U&nbsp;R')",
+			"30: f (R&nbsp;U) (R2&nbsp;bU'&nbsp;R'&nbsp;U) (R2&nbsp;bU'&nbsp;R') rf'",
+			"31: (r'&nbsp;rF'&nbsp;rU&nbsp;rF) (r&nbsp;bU'&nbsp;r'&nbsp;bU'&nbsp;r)",
+			"32: (R&nbsp;U) (rB'&nbsp;bU') (R'&nbsp;U&nbsp;R&nbsp;B&nbsp;R')",
+			"33: (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F&nbsp;R&nbsp;rF')",
+			"34: (R&nbsp;U&nbsp;R2&nbsp;bU') (R'&nbsp;F) (R&nbsp;U&nbsp;R&nbsp;bU'&nbsp;oF')",
+			"35: (R&nbsp;rU'&nbsp;bU') (R'2&nbsp;F&nbsp;R&nbsp;rF') (R&nbsp;rU'&nbsp;bU'&nbsp;R')",
+			"36: (R'&nbsp;bU'&nbsp;R&nbsp; bU') (R'&nbsp;U&nbsp;R&nbsp;U) (l&nbsp;bU'&nbsp;R'&nbsp;U)",
+			"37: F (R&nbsp;bU'&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;rF')",
+			"38: (R&nbsp;U&nbsp;R'&nbsp;U) (R&nbsp;bU'&nbsp;R'&nbsp;bU') (R'&nbsp;F&nbsp;R&nbsp;rF')",
+			"39: (R&nbsp;U&nbsp;R'&nbsp;rF'&nbsp;bU'&nbsp;F) U (R&nbsp;U2&nbsp;R')",
+			"40: (R'&nbsp;F) (R&nbsp;U&nbsp;R'&nbsp;bU') rF' (U&nbsp;R)",
+			"41: (R&nbsp;U&nbsp;R'&nbsp;oU) (R&nbsp;rU'&nbsp;bU'&nbsp;R') F (R&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"42: (R'&nbsp;bU'&nbsp;R&nbsp;bU') (R'&nbsp;U2&nbsp;R) F (R&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"43: (rB'&nbsp;bU') (R'&nbsp;U&nbsp;R&nbsp;B)",
+			"44: f (R&nbsp;U&nbsp;R'&nbsp;bU') rf'",
+			"45: F (R&nbsp;U&nbsp;R'&nbsp;bU') rF'",
+			"46: (R'&nbsp;bU') (R'&nbsp;F&nbsp;R&nbsp;rF') (U&nbsp;R)",
+			"47: rb' (bU'&nbsp;R'&nbsp;U&nbsp;R)2 b",
+			"48: F (R&nbsp;U&nbsp;R'&nbsp;bU')2 rF'",
+			"49: (R&nbsp;rB') (R'2&nbsp;F&nbsp;R2&nbsp;B) (R'2&nbsp;rF'&nbsp;R)",
+			"50: (r'&nbsp;U) (r2&nbsp;bU'&nbsp;r'2&nbsp;bU') (r2&nbsp;U&nbsp;r')",
+			"51: f ( R&nbsp;U&nbsp;R'&nbsp;bU')2 rf'",
+			"52: (R'&nbsp;rF'&nbsp;bU'&nbsp;F&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;oU&nbsp;R)",
+			"53: (r'&nbsp;U2) (R&nbsp;U&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;U&nbsp;r)",
+			"54: (r&nbsp;rU'&nbsp;bU') (R'&nbsp;bU'&nbsp;R&nbsp;U) (R'&nbsp;bU'&nbsp;R&nbsp;bU'&nbsp;r')",
+			"55: (r&nbsp;rU'&nbsp;bU'&nbsp;R'&nbsp;bU') (r'&nbsp;R2&nbsp;U&nbsp;R'&nbsp;bU') (r&nbsp;bU'&nbsp;r')",
+			"56: (r&nbsp;U&nbsp;r') (U&nbsp;R&nbsp;bU'&nbsp;R')2 (r&nbsp;bU'&nbsp;r)",
+			"57: (R&nbsp;U&nbsp;R'&nbsp;bU') oM' (U&nbsp;R&nbsp;bU'&nbsp;r')"
         ];
 	
 PLL = [
-			"01: oM'2 U oM U2 oM' U oM'2 <br> OR <br> (R bU' R) (U R)2 (U' R' bU' R'2')",
-			"02: oM'2 bU' oM  U2 oM' bU' oM'2 <br> OR <br> (R2 U) (R U) (R' bU')2 (R' U R')",
+			"01: oM'2 U oM U2 oM' U oM'2 <br>&nbsp;OR&nbsp;<br> (R&nbsp;bU'&nbsp;R) (U&nbsp;R)2 (U'&nbsp;R'&nbsp;bU'&nbsp;R'2')",
+			"02: oM'2 bU' oM  U2 oM' bU' oM'2 <br> OR <br> (R2&nbsp;U) (R&nbsp;U) (R'&nbsp;bU')2 (R'&nbsp;U&nbsp;R')",
 			"03: oM'2 U oM'2 U2 oM'2 U oM'2",
-			"04: oM' U (oM'2 U)2 oM' U2 oM'2  bU'",
-			"05: x' R2 oD2 (R' bU' R) oD2 (R' U R')",
-			"06: x' (R bU' R) oD2 (R' U R) oD2 R'2",
-			"07: x' (R bU' R' oD) (R U R' oD') (R U R' oD) (R bU' R' oD')",
-			"08: (R U R' bU') (R' rF) (R2 bU' R' bU') (R U R' rF')",
-			"09: (R' bU' rF') (R U R' bU') (R' F) (R2 bU' R' bU') (R U R' U R)",
-			"10: (R' U R' d') (R' rF' R2 bU') (R' U R' F R F)",
-			"11: F (R bU' R' bU') (R U R' rF') (R U R' bU') (R' F R rF')",
-			"12: z (U' R oD') (R2 U R' bU') (R2 U) (oD R')",
-			"13: (R U R' bF') (R U R' bU') (R' F) (R2 bU' R' bU')",
-			"14: (R' U2) (R rU' bU') (R' F R U R' bU') (R' rF' R2 bU')",
-			"15: (R bU' R' bU') (R U R oD) (R' bU' R oD') (R' U2 R' bU')",
-			"16: (R'2 bu' R rU' R) (U R' u) (R2 f R' rf')",
-			"17: (R U R') y' (R2 ru' R bU') (R' U R' u R2)",
-			"18: (R2 u R') (U R' bU' R bu') (R'2 rF' rU rF)",
-			"19: (R' d' F) (R2 U) (R' U) (R rU' R bu' R'2)",
-			"20: (R' U R bU') (R' rF' bU') (F R U R' F) (R' rF' R bU' R)",
-			"21: (R U R' oU) (R U R' bF') (R U R' bU') (R' F) (R2 bU' R' U2) (R bU' R')"
+			"04: oM' U (oM'2&nbsp;U)2 oM' U2 oM'2  bU'",
+			"05: x' R2 oD2 (R'&nbsp;bU'&nbsp;R) oD2 (R'&nbsp;U&nbsp;R')",
+			"06: x' (R&nbsp;bU'&nbsp;R) oD2 (R'&nbsp;U&nbsp;R) oD2 R'2",
+			"07: x' (R&nbsp;bU'&nbsp;R'&nbsp;oD) (R&nbsp;U&nbsp;R'&nbsp;oD') (R&nbsp;U&nbsp;R'&nbsp;oD) (R&nbsp;bU'&nbsp;R'&nbsp;oD')",
+			"08: (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;rF) (R2&nbsp;bU'&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;rF')",
+			"09: (R'&nbsp;bU'&nbsp;rF') (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F) (R2&nbsp;bU'&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;U&nbsp;R)",
+			"10: (R'&nbsp;U&nbsp;R'&nbsp;d') (R'&nbsp;rF'&nbsp;R2&nbsp;bU') (R'&nbsp;U&nbsp;R'&nbsp;F&nbsp;R&nbsp;F)",
+			"11: F (R&nbsp;bU'&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R'&nbsp;rF') (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F&nbsp;R&nbsp;rF')",
+			"12: z (U'&nbsp;R&nbsp;oD') (R2&nbsp;U&nbsp;R'&nbsp;bU') (R2&nbsp;U) (oD&nbsp;R')",
+			"13: (R&nbsp;U&nbsp;R'&nbsp;bF') (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F) (R2&nbsp;bU' R'&nbsp;bU')",
+			"14: (R'&nbsp;U2) (R&nbsp;rU'&nbsp;bU') (R'&nbsp;F&nbsp;R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;rF'&nbsp;R2&nbsp;bU')",
+			"15: (R&nbsp;bU'&nbsp;R'&nbsp;bU') (R&nbsp;U&nbsp;R&nbsp;oD) (R'&nbsp;bU'&nbsp;R&nbsp;oD') (R'&nbsp;U2&nbsp;R'&nbsp;bU')",
+			"16: (R'2&nbsp;bu'&nbsp;R&nbsp;rU'&nbsp;R) (U&nbsp;R'&nbsp;u) (R2&nbsp;f&nbsp;R'&nbsp;rf')",
+			"17: (R&nbsp;U&nbsp;R') y' (R2&nbsp;ru'&nbsp;R&nbsp;bU') (R'&nbsp;U&nbsp;R'&nbsp;u&nbsp;R2)",
+			"18: (R2&nbsp;u&nbsp;R') (U&nbsp;R'&nbsp;bU'&nbsp;R&nbsp;bu') (R'2&nbsp;rF'&nbsp;rU&nbsp;rF)",
+			"19: (R'&nbsp;d'&nbsp;F) (R2&nbsp;U) (R'&nbsp;U) (R&nbsp;rU'&nbsp;R&nbsp;bu'&nbsp;R'2)",
+			"20: (R'&nbsp;U&nbsp;R&nbsp;bU') (R'&nbsp;rF'&nbsp;bU') (F&nbsp;R&nbsp;U&nbsp;R'&nbsp;F) (R'&nbsp;rF'&nbsp; R&nbsp;bU'&nbsp;R)",
+			"21: (R&nbsp;U&nbsp;R'&nbsp;oU) (R&nbsp;U&nbsp;R'&nbsp;bF') (R&nbsp;U&nbsp;R'&nbsp;bU') (R'&nbsp;F) (R2&nbsp;bU'&nbsp;R'&nbsp;U2) (R&nbsp;bU'&nbsp;R')"
         ];
 
 function OLLcases(){
